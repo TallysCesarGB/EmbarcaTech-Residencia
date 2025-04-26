@@ -86,7 +86,7 @@ void initialize_peripherals() {
 
 void display_menu() {
     ssd1306_clear(&disp);
-    ssd1306_draw_string(&disp, 15, 5, 1, "Logic Gate Simulator");
+    ssd1306_draw_string(&disp, 4, 5, 1, "Logic Gate Simulator");
     ssd1306_draw_line(&disp, 0, 15, 127, 15);
     
     // Definições para o menu com rolagem
@@ -239,7 +239,7 @@ int main() {
 
     // Startup message
     ssd1306_clear(&disp);
-    ssd1306_draw_string(&disp, 10, 20, 1, "Logic Gate Simulator");
+    ssd1306_draw_string(&disp, 6, 20, 1, "Logic Gate Simulator");
     ssd1306_draw_string(&disp, 40, 30, 1, "BitDogLab");
     ssd1306_draw_string(&disp, 25, 45, 1, "Starting...");
     ssd1306_show(&disp);
