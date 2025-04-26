@@ -11,8 +11,8 @@
 #define PINO_SDA 14
 
 // Input pins
-#define BTN_A 5      // Button A pin (active low)
-#define BTN_B 6      // Button B pin (active low)
+#define BTN_A 5      // Button A pin 
+#define BTN_B 6      // Button B pin 
 #define SW 22        // Joystick button
 #define ADC_Y 26     // Joystick Y-axis
 

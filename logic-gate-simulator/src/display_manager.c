@@ -23,25 +23,25 @@ void display_menu(int current_selection) {
     ssd1306_draw_string(&disp, 4, 5, 1, "Logic Gate Simulator");
     ssd1306_draw_line(&disp, 0, 15, 127, 15);
     
-    // Definições para o menu com rolagem
-    const int visible_items = 3;     // Número de itens visíveis por vez
-    const int item_height = 15;      // Altura de cada item em pixels
-    const int start_y = 25;          // Posição Y inicial dos itens
+    // Settings for the scrollable menu
+    const int visible_items = 3;     // Number of items visible at a time
+    const int item_height = 15;      // Height of each item in pixels
+    const int start_y = 25;          // Initial Y position of items
     
-    // Calcular qual item deve ser o primeiro visível
+    // Calculate which item should be visible first
     int first_visible = current_selection - 1;
     if (first_visible < 0) first_visible = 0;
     if (first_visible > get_gate_count() - visible_items) first_visible = get_gate_count() - visible_items;
     
-    // Desenhar indicador de rolagem para cima (se necessário)
+    // Draw scroll up indicator (if needed)
     if (first_visible > 0) {
         ssd1306_draw_string(&disp, 60, 17, 1, "^");
     }
     
-    // Desenhar os itens visíveis do menu
+    // Draw visible menu items
     for (int i = 0; i < visible_items; i++) {
         int menu_index = first_visible + i;
-        if (menu_index < get_gate_count()) {  // Garantir que não ultrapasse o número de itens
+        if (menu_index < get_gate_count()) {  // Ensure that you do not exceed the number of items
             if (menu_index == current_selection) {
                 ssd1306_draw_string(&disp, 10, start_y + i * item_height, 1, ">");
             }
@@ -49,7 +49,7 @@ void display_menu(int current_selection) {
         }
     }
     
-    // Desenhar indicador de rolagem para baixo (se necessário)
+    // Draw scroll down indicator (if needed)
     if (first_visible + visible_items < get_gate_count()) {
         ssd1306_draw_string(&disp, 60, start_y + visible_items * item_height - 8, 1, "v");
     }
