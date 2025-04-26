@@ -35,7 +35,15 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(logic-gate-simulator logic-gate-simulator.c ssd1306.c)
+add_executable(logic-gate-simulator 
+        src/main.c
+        src/hardware_config.c
+        src/logic_gates.c
+        src/display_manager.c
+        src/input_manager.c
+        src/menu_system.c
+        lib/ssd1306/ssd1306.c
+)
 
 pico_set_program_name(logic-gate-simulator "logic-gate-simulator")
 pico_set_program_version(logic-gate-simulator "0.1")
@@ -54,6 +62,8 @@ target_link_libraries(logic-gate-simulator
 # Add the standard include files to the build
 target_include_directories(logic-gate-simulator PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/include
+        ${CMAKE_CURRENT_LIST_DIR}/lib/ssd1306
 )
 
 # Add any user requested libraries
